@@ -1,0 +1,35 @@
+﻿@using Montadora.Alexsandro.Models
+@model IEnumerable<Montadora.Alexsandro.Models.Cliente>
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><h2>Cidades Cadastradas</h2></div>
+    <div id="formularioCidade" class="panel-body">
+        @Html.Partial("_AddCliente", new Cliente())
+    </div>
+    <table class="table table-responsive table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(c => c.Id)</th>
+                <th>@Html.DisplayNameFor(c => c.Nome)</th>
+                <th>@Html.DisplayNameFor(c => c.Cpf)</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nome</td>
+                    <td>@item.Cpf</td>
+                    <td>@Html.ActionLink(" ", null, new { @formularioC = "" }, new { @class = "btn btn-lg btn-default glyphicon glyphicon-pencil" }) @Html.ActionLink(" ", "DeletCliente", new { @id = @item.Id }, new { @class = "btn btn-lg btn-danger glyphicon glyphicon-remove" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

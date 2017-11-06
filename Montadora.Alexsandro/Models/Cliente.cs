@@ -22,5 +22,10 @@ namespace Montadora.Alexsandro.Models
 
         [Display(Name = "Orgão Expedidor")]
         public string OrgaoExpedidor { get; private set; }
+
+        public IList<Cliente> GetAll()
+        {
+            new ClienteRepository().SelecionarTodos();
+        }
     }
 }

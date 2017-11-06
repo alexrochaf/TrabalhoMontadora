@@ -1,0 +1,36 @@
+﻿@using Montadora.Alexsandro.Models
+@model IEnumerable<Montadora.Alexsandro.Models.Cidade>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><h2>Cidades Cadastradas</h2></div>
+    <div id="formularioCidade" class="panel-body">
+        @Html.Partial("_AddCidade", new Cidade())
+    </div>
+    <table class="table table-responsive table-striped">
+        <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(c => c.Id)</th>
+            <th>@Html.DisplayNameFor(c => c.Nome)</th>
+            <th>@Html.DisplayNameFor(c => c.Estado)</th>
+            <th>#</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+                <td>@item.Estado</td>
+                <td>@Html.ActionLink(" ",null ,new {@formularioCidade = ""}, new {@class ="btn btn-lg btn-default glyphicon glyphicon-pencil" }) @Html.ActionLink(" ", "DeletCidade" ,new {@id = @item.Id}, new {@class ="btn btn-lg btn-danger glyphicon glyphicon-remove" })</td>
+
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Montadora.Alexsandro.Enums
+namespace Montadora.Alexsandro.Repository
 {
-    public enum Estado
+    public class ClienteRepository
     {
     }
 }
