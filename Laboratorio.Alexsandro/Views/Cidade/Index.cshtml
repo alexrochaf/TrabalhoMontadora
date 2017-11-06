@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Laboratorio.Alexsandro.Models.Cidade>
+@{
+    ViewBag.Title = "Cidade";
+}
+
+@Html.ActionLink("Novo", "Novo", null, new { @class = "btn btn-primary" })
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(c => c.Nome)</th>
+        <th>@Html.DisplayNameFor(c => c.Estado)</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(c => i.Nome)</td>
+            <td>@Html.DisplayFor(c => i.Estado)</td>
+            <td>@Html.ActionLink(" ", "Alterar", new{id = i.Id}, new {@class = "btn btn-warning glyphicon glyphicon-pencil" }) | 
+                @Html.ActionLink(" ", "Delete", new{id = i.Id}, new {@class = "btn btn-danger glyphicon glyphicon-trash" })</td>
+        </tr>
+
+    }
+
+    </tbody>
+</table>

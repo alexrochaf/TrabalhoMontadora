@@ -1,0 +1,26 @@
+﻿@model IList<Laboratorio.Alexsandro.Models.Paciente>
+@{
+    Layout = null;
+}
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>@Html.DisplayNameFor(p => p.Nome)</th>
+        <th>@Html.DisplayNameFor(p => p.Cidade)</th>
+        <th>@Html.DisplayNameFor(p => p.TipoConveniado)</th>
+    </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.Nome</td>
+                <td>@i.Cidade</td>
+                <td>@i.TipoConveniado</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

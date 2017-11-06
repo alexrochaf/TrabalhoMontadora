@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <input id="consulta" type="text"/>
+    </div>
+    <div class="form-group">
+        <a href="#" id="buscar" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></a>
+    </div>
+</form>
+
+<div id="listaPaciente">
+    
+</div>
+
+@section script{
+    <script>
+        $("#buscar").on("click", function() {
+
+            var consulta = $("consulta").val();
+
+            $("#listaPaciente").load("BuscarPacientePorNome", {nome: consulta});
+
+        })
+    </script>
+}
